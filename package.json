@@ -1,0 +1,18 @@
+{
+  "name": "token_price_puller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@massalabs/massa-web3": "^4.0.3",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "node-cron": "^3.0.3"
+  }
+}
