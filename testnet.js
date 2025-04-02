@@ -64,7 +64,6 @@ async function fetchPrices() {
   await fetchTokenPrice("bitcoin");
   await fetchTokenPrice("ethereum");
   await fetchTokenPrice("massa");
-  await fetchTokenPrice("solana");
 }
 
 // Run immediately when the script starts
@@ -74,8 +73,8 @@ async function fetchPrices() {
   await fetchPrices();
 })();
 
-// Schedule the cron job to run every 5 minutes
-cron.schedule("*/20 * * * *", async () => {
+// Schedule the cron job to run every 15 minutes
+cron.schedule("*/15 * * * *", async () => {
   console.log("Executing scheduled task...");
   await fetchPrices();
 });

@@ -27,10 +27,10 @@ let Client;
 // Initialize Massa Web3 client
 async function initClient() {
   const baseAccount = await WalletClient.getAccountFromSecretKey(privateKey);
-  const chainId = CHAIN_ID.BuildNet;
+  const chainId = CHAIN_ID.MainNet;
 
   Client = await ClientFactory.createDefaultClient(
-    DefaultProviderUrls.BUILDNET,
+    DefaultProviderUrls.MAINNET,
     chainId,
     true, // retry failed requests
     baseAccount // optional parameter
@@ -69,7 +69,6 @@ async function fetchPrices() {
   await fetchTokenPrice("bitcoin");
   await fetchTokenPrice("ethereum");
   await fetchTokenPrice("massa");
-  await fetchTokenPrice("solana");
 }
 
 // Run immediately when the script starts
@@ -80,7 +79,7 @@ async function fetchPrices() {
 })();
 
 // Schedule the cron job to run every 5 minutes
-cron.schedule("*/20 * * * *", async () => {
+cron.schedule("*/15 * * * *", async () => {
   console.log("Executing scheduled task...");
   await fetchPrices();
 });
